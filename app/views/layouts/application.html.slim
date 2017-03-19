@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title = content_for?(:title) ? content_for(:title) : "Photo Gallery App"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = render partial: 'layouts/header'
+    .container
+      = render partial: 'layouts/messages'
+      = yield
+      = render partial: 'layouts/footer'

@@ -1,0 +1,24 @@
+.row
+  .col-md-8
+    = form_for @image_gallery do |f|
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: "form-control"
+        = field_errors(@image_gallery, :title)
+      .form-group
+        = f.label :image
+        p
+          = attachment_image_tag @image, :image, :fill, 60, 60
+          = f.attachment_field :image
+        = field_errors(@image_gallery, :image)
+      .form-group
+        = f.label :images_files, "Images"
+        = f.attachment_field :image, multiple: true
+        = field_errors(@image_gallery, :images_files)
+      .form-group
+        = f.label :body
+        = f.text_area :body, class: "form-control"
+        = field_errors(@image_gallery, :body)
+      .form-group
+        = f.submit class: "btn btn-primary"
+  .col-md-4

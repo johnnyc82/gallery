@@ -1,0 +1,13 @@
+h1 = @image_gallery.title
+
+p 
+  = link_to "Edit gallery", [:edit, @image_gallery], class: "btn btn-primary"
+  = link_to "Delete gallery", @image_gallery, data: { method: "delete", confirm: "Are you sure?" }, class: "btn btn-danger"
+
+= @image_gallery.images.each do |i|
+  p
+    = attachment_image_tag(@image_gallery, :image, :fill, 200, 200)
+    = link_to image.image_filename, attachment_url(image, :file)
+    = image.image_content_type
+    = number_to_human_size image.image_size
+    = simple_format @image_gallery.body

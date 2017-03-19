@@ -1,0 +1,19 @@
+/ = simple_form_for @image, url: images_path do |form|
+/   = form.input :image_upload, as: :file
+
+h1 Upload image
+
+/ = form_for @image do |f|
+/   = render 'shared/errors', object: @image_upload
+
+/   = f.attachment_field :image_upload
+
+/   / .form-group
+/   /   = f.label :title
+/   /   = f.text_field :title, class: 'form-control'
+
+/   / .form-group
+/   /   = f.label :image
+/   /   = f.file_field :image, class: 'form-control'
+
+/   = f.submit 'Upload', class: 'btn btn-primary'

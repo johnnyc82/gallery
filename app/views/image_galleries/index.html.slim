@@ -1,0 +1,7 @@
+h1 Image Galleries
+
+p = link_to "New gallery", :new_image_gallery, class: "btn btn-primary", role: "button"
+
+ul
+  = @image_gallery.each do |g|
+    li = link_to g.title, g
